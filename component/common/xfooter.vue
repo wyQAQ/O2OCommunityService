@@ -28,7 +28,8 @@
 export default {
   data(){
       return {
-          id:0
+          id:0,
+          address:"睿城"
       }
   },
   mounted(){
@@ -38,18 +39,30 @@ export default {
     if(/^shouye$/.test(key)){
         this.id=0;
         this.$store.state.pagetitle="首页";
+        this.$store.state.lefticon="iconfont icon-icon-test6";
+        this.$store.state.rightcon="iconfont icon-icon-test9";
+        this.$store.state.address=this.address;
     }
     if(/^service$/.test(key)){
         this.id=1;
         this.$store.state.pagetitle="服务";
+        this.$store.state.lefticon="iconfont icon-icon-test6";
+        this.$store.state.rightcon="iconfont icon-icon-test9";
+        this.$store.state.address=this.address;
     }
     if(/^community$/.test(key)){
         this.id=2;
         this.$store.state.pagetitle="社区";
+        this.$store.state.lefticon="iconfont icon-icon-test1";
+        this.$store.state.rightcon="iconfont icon-xiaoxi";
+        this.$store.state.address="";
     }
     if(/^mine$/.test(key)){
         this.id=3;
         this.$store.state.pagetitle="我的";
+        this.$store.state.lefticon="iconfont icon-icon-test1";
+        this.$store.state.rightcon="iconfont icon-xiaoxi";
+        this.$store.state.address="";
     }
   },
   methods:{
@@ -60,15 +73,27 @@ export default {
       matchpagetitle(id){
       	if(id==0){
       		this.$store.state.pagetitle="首页";
+      		this.$store.state.lefticon="iconfont icon-icon-test6";
+        	this.$store.state.rightcon="iconfont icon-icon-test9";
+        	this.$store.state.address=this.address;
       	}
       	if(id==1){
       		this.$store.state.pagetitle="服务";
+      		this.$store.state.lefticon="iconfont icon-icon-test6";
+        	this.$store.state.rightcon="iconfont icon-icon-test9";
+        	this.$store.state.address=this.address;
       	}
       	if(id==2){
       		this.$store.state.pagetitle="社区";
+      		this.$store.state.lefticon="iconfont icon-icon-test1";
+        	this.$store.state.rightcon="iconfont icon-xiaoxi";
+        	this.$store.state.address="";
       	}
       	if(id==3){
       		this.$store.state.pagetitle="我的";
+      		this.$store.state.lefticon="iconfont icon-icon-test1";
+        	this.$store.state.rightcon="iconfont icon-xiaoxi";
+        	this.$store.state.address="";
       	}
       }
   }

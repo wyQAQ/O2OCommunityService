@@ -127,7 +127,10 @@ var router = new VueRouter({
 //配置状态
 var store = new Vuex.Store({
     state: {
-        pagetitle:"首页"
+        pagetitle:"首页",
+        lefticon:"iconfont icon-icon-test6",
+        rightcon:"iconfont icon-icon-test9",
+        address:"睿城"
     }
 })
 new Vue({

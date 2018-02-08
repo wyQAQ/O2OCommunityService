@@ -223,7 +223,7 @@ function transDay(num){
 .noticelistcon{line-height: 2.3rem;position: absolute;top:0;left:2.5rem;}
 .morenotice{color: #9D9D9D;}
 .morenotice a{text-decoration: none;color: #9D9D9D;}
-.winterimg{margin:1rem 0.7rem;padding:1rem 0;color: white;position: relative;}
+.winterimg{margin:1rem 0.7rem;padding:1rem 0;color: white;position: relative;border-radius: 0.5rem;}
 .timenum{display: flex;justify-content: space-between;width: 35%;margin-left: 1rem;}
 .tday{width: 3.2rem;line-height: 3.2rem;font-size: 2.3rem;border-right: 1px solid white;}
 .tdym{display: flex;flex-direction: column;justify-content: space-between;font-size:0.8rem;}
