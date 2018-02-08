@@ -30,7 +30,7 @@ export default {
 </script>
 <style scoped>
 	i{font-style: normal;}
-.headerbg{height: 2.5rem;line-height: 2.5rem;display: flex;justify-content: space-between;padding:0 0.75rem;background: #d81e06;}
+.headerbg{position:fixed;top:0;left:0;z-index: 99;width:94%;height: 2.5rem;line-height: 2.5rem;display: flex;justify-content: space-between;padding:0 0.75rem;background: #d81e06;}
 .headerbg p{font-family: charcoal;font-weight: 500;font-size: 1.1rem;color: white;}
 .headerbg p i,.headerbg p span{color: white;}
 .headerbg p:nth-of-type(1){display: flex;justify-content: space-between;}
