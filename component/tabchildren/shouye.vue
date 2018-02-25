@@ -15,8 +15,8 @@
 	  	</div>
 	  	<!--服务列表-->
 	  	<ul class="servelist">
-	  		<a v-for="i in servelist" :href="i.href">
-	  			<li >
+	  		<a v-for="i in servelist" :href="i.href" @click="i.method">
+	  			<li>
 	  				<i :class="i.icon"></i>
 	  				<span v-text="i.con"></span>
 	  			</li>
@@ -53,10 +53,19 @@
 	  	<p class="splitebar"></p>
 	  	<!--商家优惠-->
 	  	<div class="sellerdiscountbg">
-	  		<p class="homelifeservicetitle">商家优惠</p>
+	  		<p class="homelifeservicetitle">最新热卖</p>
 	  		<xgoodlist/>
 	  	</div>
-	  
+	  	<!--弹出框蒙版-->
+	  	<div class="weui-mask" v-show="phoneisshow"></div>
+	  	<div class="weui-dialog" v-show="phoneisshow">
+            <div class="weui-dialog__hd"><strong class="weui-dialog__title">管家电话</strong></div>
+            <div class="weui-dialog__bd">123231231312</div>
+            <div class="weui-dialog__ft">
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default" @click="cacelphone">取消</a>
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">拨打</a>
+            </div>
+        </div>
 	  </div><!--shouye end-->
 	</div>
 	
@@ -96,22 +105,26 @@ export default {
           	{
           		icon:"iconfont icon-dianhua",
           		con:"管家电话",
-          		href:"javascript:;"
+          		href:"javascript:;",
+          		method:this.showphone
           	},
           	{
           		icon:"iconfont icon-gouwuche",
           		con:"商家优惠",
-          		href:"#/sellerdiscontlist"
+          		href:"#/sellerdiscontlist",
+          		method:this.donothing
           	},
           	{
           		icon:"iconfont icon-shuifei",
           		con:"生活缴费",
-          		href:"#/payment"
+          		href:"#/payment",
+          		method:this.donothing
           	},
           	{
           		icon:"iconfont icon-gongju",
           		con:"维修服务",
-          		href:"#/repairlist"
+          		href:"#/repairlist",
+          		method:this.donothing
           	}
           ],
         //前四条社区公告
@@ -135,7 +148,9 @@ export default {
           		img:jujia4,
           		txt:"绿植鲜花"
           	}
-          ]
+          ],
+        //管家电话弹出框的显示与隐藏
+          phoneisshow:false
       }
   },
   components:{
@@ -184,6 +199,18 @@ export default {
   		}
   		$(".noticelistcon").animate({"top":-t+"rem"},1500);
   	},3000)
+  },
+  methods:{
+  	//空函数，点击无任何操作
+  	donothing(){},
+  	//显示管家电话
+  	showphone(){
+  		this.phoneisshow=true;
+  	},
+  	//隐藏管家电话
+  	cacelphone(){
+  		this.phoneisshow=false;
+  	}
   }
 }
 

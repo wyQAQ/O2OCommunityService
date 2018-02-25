@@ -1,7 +1,7 @@
 <template>
   <div id="loginbg">
     <div class="header">
-        <a href="#/reglog"><b class="iconfont icon-zuojiantou"></b></a>
+        <a href="#/totaltab/shouye"><b class="iconfont icon-fanhui" style="font-size: 20px"></b></a>
         <i>|</i>
     </div>
     <form class="logform" id="userlog">
@@ -93,7 +93,7 @@ export default {
                   };
                 $.cookie("user",JSON.stringify(obj));
                 self.isLogin=true;
-                self.$router.push({ path: '/totaltab/wechat' })
+                self.$router.push({ path: '/tabchildren/shouye' })
               }else{
                 self.passmessshow=true;
               }  
@@ -142,16 +142,16 @@ export default {
 a{text-decoration: none;display: block;}
 i{font-style: normal;}
 input{border:0;outline: none;background: #FFFFFF;}
-#loginbg{width:100%;height:100%;background: #FFFFFF;}
+#loginbg{width:100%;height:40px;background: #FFFFFF;}
 #loginbg .header{
-    background: #393A3F;
-    height:7%;
-    font-size: 16px;
+    background: #d81e06;
+    height:100%;
+    font-size: 20px;
     color:white;
 }
 #loginbg .header a{color: white;}
-#loginbg .header a,#loginbg header i,#loginbg header span{margin-left:5%;float:left;display: block;height:100%;line-height: 50px;}
-#loginbg .header i{color:#2B2C31;width:2px;}
+#loginbg .header a,#loginbg .header i,#loginbg .header span{margin-left:5%;float:left;display: block;height:100%;line-height: 40px;}
+#loginbg .header i{color:#FFFFFF;width:2px;}
 .logform{overflow: hidden;}
 .logform h3{font-size: 20px;color: #292929;text-align: center;height:16%;line-height: 64px;font-weight: 600;}
 .mydetailinfo{position:relative;margin:0 8%;height:10%;width:auto;font-size: 18px;line-height: 100%;border-bottom: 1px solid #D8D8D8;overflow: hidden;}

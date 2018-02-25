@@ -1,7 +1,7 @@
 <template>
   <div id="regbg">
       <div class="header">
-          <a href="#/reglog"><b class="iconfont icon-zuojiantou"></b></a>
+          <a href="#/totaltab/shouye"><b class="iconfont icon-fanhui"></b></a>
           <i>|</i>
           <span v-text="span[0]"></span>
       </div>
@@ -13,7 +13,7 @@
                 <em class="messshow" :style="{display:hasnamemessshow?'block':'none'}">用户名已存在</em>
             </div>
             <div class="mydetailinfo">
-                <span v-text="span[6]"></span><input type="text" v-model="usernick" @focus="nicknshow">
+                <span v-text="span[6]"></span><input type="text" v-model="usernick" @focus="nicknshow" @blur="nicknoshow">
                 <i class="clearcon" @click="clearconnick" v-show="nickisdel">×</i>
             </div>
             <div class="mydetailinfo">
@@ -34,7 +34,7 @@
                 <a href="javascript:void(0)" class="regbbt"><span v-text="span[5]" @click="userreg"></span></a>
             </div>
             <div class="mydetailinfo">
-                <p>点击上面的注册按钮，即表示你同意<a>《腾讯微信软件许可及服务协议》</a>和<a>《微信隐私保护指引》</a></p>
+                <p>点击上面的注册按钮，即表示你同意<a>《O2O社区软件许可及服务协议》</a>和<a>《个人隐私保护指引》</a></p>
             </div>
             <div class="picture">
                 <div class="weui-uploader__input-box">
@@ -148,7 +148,7 @@ export default {
     },
     //判断输入格式
     namenoshow(){
-        if(/\w{6,12}/.test(this.username)==false){
+        if(/\w{6,12}/.test(this.username)==false && this.username!=""){
             this.namemessshow=true;
         }else{
             if(/^\d{6,12}$/.test(this.username)==true || /^[a-zA-Z]{6,12}$/.test(this.username)==true){
@@ -160,7 +160,7 @@ export default {
       this.nameisdel=false;
     },
     passnoshow(){
-        if(/^\w{6,12}$/.test(this.userpass)==false){
+        if(/^\w{6,12}$/.test(this.userpass)==false && this.userpass!=""){
             this.passmessshow=true;
         }else{
             this.passmessshow=false;
@@ -168,12 +168,18 @@ export default {
       this.passisdel=false;
     },
     numnoshow(){
-        if(/^1\d{10}$/.test(this.userphone)==false){
+        if(/^1\d{10}$/.test(this.userphone)==false && this.userphone!=""){
             this.nummessshow=true;
         }else{
             this.nummessshow=false;
         }
       this.numisdel=false;
+    },
+    nicknoshow(){
+    	if(this.usernick!=""){
+    		this.nickisdel=true;
+    	}
+    	this.nickisdel=false;
     },
     //上传头像显示图片
     showuserimg(){
@@ -249,14 +255,14 @@ a{text-decoration: none;display: block;}
 i{font-style: normal;}
 input{border:0;outline: none;background: #FFFFFF;}
 #regbg .header{
-    background: #393A3F;
-    height:7%;
+    background: #d81e06;
+    height:40px;
     font-size: 16px;
     color:white;
 }
 #regbg .header a{color: white;}
-#regbg .header a,#regbg .header i,#regbg .header span{margin-left:5%;float:left;display: block;height:100%;line-height: 50px;}
-#regbg .header i{color:#2B2C31;width:2px;}
+#regbg .header a,#regbg .header i,#regbg .header span{margin-left:5%;float:left;display: block;height:100%;line-height: 40px;}
+#regbg .header i{color:#FFFFFF;width:2px;}
 .regform{overflow: hidden;position: relative;}
 .mydetailinfo{position:relative;margin:0 4%;height:10%;width:auto;font-size: 18px;line-height: 100%;border-bottom: 1px solid #D8D8D8;overflow: hidden;}
 .mydetailinfo  span,.mydetailinfo input,.mydetailinfo i{display:block;float: left;line-height: 70px;}
@@ -268,14 +274,14 @@ input{border:0;outline: none;background: #FFFFFF;}
 .mydetailinfo:nth-of-type(7){border:0;}
 .mydetailinfo:nth-of-type(7) p{font-size: 14px;color:#989898;}
 .mydetailinfo:nth-of-type(7) p a{text-decoration: underline;display: inline;font-size: 14px;line-height: 24px;color: #5C637D;}
-.picture{position:absolute;left:74%;;top:7%;width:100px;height:100px;}
+.picture{position:absolute;top:40px;right:0;width:100px;height:100px;}
 .weui-uploader__input-box{width:100%;height: 100%;border:0;}
 .picture:nth-of-type(2){border:0;}
 .picture img{width: 100%;height:100%;text-align: center;font-size: 12px;line-height: 67px;}
 .messshow{position: absolute;;color:red;font-style: normal;font-size: 12px;left:60%;top:38%;}
 .mydetailinfo .clearcon{position: absolute;;color:grey;font-style: normal;font-size: 12px;left:80%;top:38%;background: rgba(0, 0, 0, 0.2);
 border-radius: 50%;width:18px;height:18px;text-align: center;line-height: 16px;}
-.mydetailinfo .clearconfir{left:45%;}
+.mydetailinfo .clearconfir{left:62%;}
 .sex{margin-top:9%;}
 .weui-uploader__input-box:before,.weui-uploader__input-box:after{background: #989898;}
 .regbbt{overflow: hidden;}
