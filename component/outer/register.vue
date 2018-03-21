@@ -7,7 +7,7 @@
       </div>
       <form name="regform" id="userreg">
             <div class="mydetailinfo">
-                <span v-text="span[1]"></span><input type="text" v-model="username" @blur="namenoshow" @focus="namenshow" placeholder="6-12位字母数字组合" @input="nameisin">
+                <span v-text="span[1]"></span><input type="text" v-model="username" @blur="namenoshow" @focus="namenshow" placeholder="你的真实姓名" @input="nameisin">
                 <i class="clearcon clearconfir" @click="clearconname" v-show="nameisdel">×</i>
                 <em class="messshow" :style="{display:namemessshow?'block':'none'}">用户名格式错误</em>
                 <em class="messshow" :style="{display:hasnamemessshow?'block':'none'}">用户名已存在</em>
@@ -42,13 +42,14 @@
                 </div>
             </div>
             <div class="picture">
-                <img class="weui-uploader__file" src='' alt="  " id="upuserpic"/>
+                <img class="weui-uploader__file" :src='userimg' alt="  " id="upuserpic"/>
             </div>
       </form>
   </div>
 </template>
 <script>
 import $ from "jquery";
+import userpic from "../../userlogo/User.jpg";
 var src=[];
 function upload(){
 		$.ajax({
@@ -69,7 +70,7 @@ function upload(){
 export default {
   data(){
       return {
-          span:["新用户注册","账户","性别","手机号","密码","注册","昵称"],
+          span:["新用户注册","姓名","性别","手机号","密码","注册","昵称"],
           username:'',
           usernick:"",
           usergender:"",
@@ -87,7 +88,8 @@ export default {
           numisdel:false,
           nickisdel:false,
           str:"",
-          alluser:[]//所有已注册用户信息
+          alluser:[],//所有已注册用户信息
+          userimg:userpic
       }
   },
   methods:{
